@@ -32,7 +32,7 @@ export function CreateNoteForm({ initialNotes }: { initialNotes: Note[] }) {
         title: "Note created",
         description: "Your note was saved",
       });
-      setNotes((current) => [data, ...current]);
+      setNotes((current) => [...data, ...current]);
       setTitle("");
       setBody("");
     },

@@ -28,9 +28,9 @@ export const createNoteAction = authenticatedAction
     await rateLimitByKey({
       key: `${user.id}-create-note`,
     });
-    await createNoteUseCase(user, {
+    revalidatePath("/dashboard/notes");
+    return await createNoteUseCase(user, {
       title,
       body,
     });
-    revalidatePath("/dashboard/notes");
   });
