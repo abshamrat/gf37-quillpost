@@ -260,6 +260,16 @@ export const posts = pgTable("gf_posts", {
   createdOn: timestamp("createdOn", { mode: "date" }).notNull(),
 });
 
+export const notes = pgTable("gf_notes", {
+  id: serial("id").primaryKey(),
+  userId: serial("userId")
+    .notNull()
+    .references(() => users.id, { onDelete: "cascade" }),
+  title: text("title").notNull(),
+  body: text("body").notNull(),
+  createdOn: timestamp("createdOn", { mode: "date" }).notNull(),
+});
+
 export const reply = pgTable(
   "gf_replies",
   {
@@ -342,6 +352,9 @@ export type Notification = typeof notifications.$inferSelect;
 
 export type Post = typeof posts.$inferSelect;
 export type NewPost = typeof posts.$inferInsert;
+
+export type Note = typeof notes.$inferSelect;
+export type NewNote = typeof notes.$inferInsert;
 
 export type Reply = typeof reply.$inferSelect;
 export type NewReply = typeof reply.$inferInsert;
