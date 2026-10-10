@@ -42,7 +42,7 @@ export default async function DashboardPage() {
             alt="no image placeholder image"
             className="opacity-50 grayscale"
           ></Image>
-          <h2 className="text-xl text-neutral-500 dark:text-neutral-400">Uh-oh, you don't own any groups</h2>
+          <h2 className="text-xl text-neutral-500 dark:text-neutral-400">Nothing here yet</h2>
 
           <div className="flex gap-4">
             <CreateGroupButton />
